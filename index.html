@@ -8,36 +8,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul class="menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="logo" aria-label="Home">
+                <span class="seal">B</span>
+                <span class="logo-text">Smith<em>Capellán</em></span>
+            </a>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-left">
-                <div class="hero-image">
-                    <img src="/portfolios/img/Gojo.jpeg" alt="profile">
+                <div class="frame kento">
+                    <img src="/portfolios/img/Gojo.jpeg" alt="Portrait of Billy Smith Capellán">
+                    <span class="seal-badge">職人</span>
                 </div>
             </div>
             <div class="hero-right">
-                <h1 class="hero-title">Billy Smith Capellan</h1>
-                <p class="hero-subtitle">Full‑Stack Web Programmer</p>
-                <p class="hero-description">We create digital experiences with clean code and creativity.
-                    Specializing in modern and scalable web applications.</p>
+                <p class="kicker">フルスタック開発者 <span>— Full-Stack Web Programmer</span></p>
+                <h1 class="hero-title">Billy Smith<br>Capellán</h1>
+                <p class="hero-description">I build digital experiences with clean code and quiet
+                    craftsmanship — specializing in modern, scalable web applications for real businesses.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-outline">Contact</a>
@@ -54,89 +61,104 @@
         </div>
         <div class="hero-scroll">
             <a href="#about" class="scroll-down">
-                <span>Scroll Down</span>
-                <i class="fa-solid fa-arrow-down"></i>
+                <span class="scroll-line"></span>
+                <span>Scroll</span>
             </a>
         </div>
     </section>
 
     <section class="about" id="about">
+        <span class="ambient-kanji" aria-hidden="true">自己紹介</span>
+        <p class="eyebrow"><span class="num">01</span><span class="jp">自己紹介</span><span class="en">About</span></p>
         <h2>About Me</h2>
         <div class="about-content">
+            <div class="about-left">
+                <div class="frame kento small">
+                    <img src="/portfolios/img/Ichigo.jpeg" alt="Second portrait of Billy Smith Capellán">
+                    <span class="seal-badge">情熱</span>
+                </div>
+            </div>
             <div class="about-right">
                 <div class="about-text">
                     <p>
-                        I'm a passionate full-stack developer who enjoys turning ideas into code. I love creating
-                        applications, experimenting with new technologies, and sharing knowledge with the community.
-                        This portfolio is a space where I showcase my work.
+                        I'm a full-stack developer who enjoys turning ideas into working software. I like
+                        building real tools for real businesses — restaurants, clinics, small shops — and
+                        sharing what I learn along the way. This portfolio is where I show that work.
                     </p>
                 </div>
                 <div class="about-highlight">
-                    <div class="highlight-item">
+                    <div class="highlight-item kento">
                         <i class="fa-solid fa-code"></i>
                         <h3>2+ years</h3>
                         <p>of professional experience in web development</p>
                     </div>
-                    <div class="highlight-item">
+                    <div class="highlight-item kento">
                         <i class="fa-regular fa-face-smile"></i>
                         <h3>16+ projects</h3>
                         <p>delivered for clients and personal satisfaction</p>
                     </div>
                 </div>
             </div>
-            <div class="about-left">
-                <div class="about-image">
-                    <img src="/portfolios/img/Ichigo.jpeg" alt="profile">
-                </div>
-            </div>
         </div>
     </section>
-
 
     <section class="skills" id="skills">
-        <h2>Skills & Tools</h2>
+        <span class="ambient-kanji" aria-hidden="true">技術</span>
+        <p class="eyebrow center"><span class="num">02</span><span class="jp">技術</span><span class="en">Skills</span></p>
+        <h2>Skills &amp; Tools</h2>
         <div class="icons-grid">
-            <div class="skill-icon"><i class="fa-brands fa-github"></i><span>GitHub</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-php"></i><span>PHP</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-python"></i><span>Python</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-react"></i><span>React</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-vuejs"></i><span>Vue.js</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-laravel"></i><span>Laravel</span></div>
-            <div class="skill-icon"><i class="fa-brands fa-js"></i><span>TypeScript</span></div>
-            <div class="skill-icon"><i class="fa-solid fa-bolt"></i><span>Vite</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-github"></i><span>GitHub</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-php"></i><span>PHP</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-python"></i><span>Python</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-react"></i><span>React</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-vuejs"></i><span>Vue.js</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-laravel"></i><span>Laravel</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-css3"></i><span>CSS</span></div>
+            <div class="skill-icon kento"><i class="fa-solid fa-bolt"></i><span>Vite</span></div>
+            <div class="skill-icon kento"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+            <div class="skill-icon kento"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
         </div>
     </section>
 
-
     <section class="projects" id="projects">
+        <span class="ambient-kanji" aria-hidden="true">作品</span>
+        <p class="eyebrow"><span class="num">03</span><span class="jp">作品</span><span class="en">Projects</span></p>
         <h2>Featured Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <img src="/portfolios/img/BJInvoices.png" alt="code">
+                <div class="project-img kento">
+                    <img src="/portfolios/img/BJInvoices.png" alt="BJInvoices screenshot">
+                </div>
                 <div class="project-info">
-                    <h3>BJInovices</h3>
-                    <p>Complete inventory and billing system to efficiently manage products, stock, and sales</p>
-                    <div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>MySql</span></div>
+                    <h3>BJInvoices</h3>
+                    <p>Complete inventory and billing system to efficiently manage products, stock, and sales.</p>
+                    <div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div>
                     <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="project-card">
-                <img src="/portfolios/img/BJGastroSoft.png" alt="fitness app">
+                <div class="project-img kento">
+                    <img src="/portfolios/img/BJGastroSoft.png" alt="BJGastroSoft screenshot">
+                </div>
                 <div class="project-info">
                     <h3>BJGastroSoft</h3>
-                    <p>Complete inventory and billing system for restaurants, bars and cafes: easily manage products, tables and sales</p>
+                    <p>Complete inventory and billing system for restaurants, bars and cafés: manage products,
+                        tables and sales with ease.</p>
                     <div class="project-tags"><span>Vue</span><span>Laravel</span><span>MySQL</span></div>
                     <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="project-card">
-                <img src="/portfolios/img/ClinicSoft.png" alt="e-commerce">
+                <div class="project-img kento">
+                    <img src="/portfolios/img/ClinicSoft.png" alt="ClinicSoft screenshot">
+                </div>
                 <div class="project-info">
                     <h3>ClinicSoft</h3>
-                    <p>Complete medical appointment system: schedule patients, manage doctors and easily control consultations.</p>
+                    <p>Complete medical appointment system: schedule patients, manage doctors and control
+                        consultations with ease.</p>
                     <div class="project-tags"><span>Vue</span><span>Laravel</span><span>MySQL</span></div>
                     <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
@@ -144,10 +166,12 @@
         </div>
     </section>
 
-
     <section class="contact" id="contact">
-        <h2>Let's talk</h2>
-        <div class="contact-container">
+        <span class="ambient-kanji" aria-hidden="true">連絡</span>
+        <p class="eyebrow center"><span class="num">04</span><span class="jp">連絡</span><span class="en">Contact</span></p>
+        <h2>Let's Talk</h2>
+        <div class="contact-container kento">
+            <span class="seal-badge corner">感謝</span>
             <p>Have a project in mind or just want to say hi? Feel free to reach out!</p>
             <div class="contact-details">
                 <div class="contact-item"><i class="fa-regular fa-envelope"></i><a
@@ -170,9 +194,30 @@
     </section>
 
     <footer>
-        © 2025 B. Smith Capellan — built with <i class="fa-solid fa-heart" style="color: #9333ea;"></i> and minimal
-        animations
+        <span class="mini-seal">印</span>
+        © 2025 B. Smith Capellán — crafted with <span class="kanji-inline">心</span> and quiet motion
     </footer>
+
+    <script>
+        // Gentle scroll-reveal, disabled for users who prefer reduced motion
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const revealTargets = document.querySelectorAll(
+                '.about-content, .icons-grid, .project-grid, .contact-container, .eyebrow, .hero-right, .hero-left'
+            );
+            revealTargets.forEach(el => el.classList.add('reveal'));
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            revealTargets.forEach(el => io.observe(el));
+        }
+    </script>
 </body>
 
 </html>
