@@ -1,223 +1,365 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billy Smith · dev portfolio</title>
+    <title>Billy Smith Capellán Arciniega · Desarrollador Full-Stack</title>
+    <meta name="description"
+        content="Portafolio de Billy Smith Capellán Arciniega, desarrollador full-stack. Proyectos, tecnologías y experiencia construyendo aplicaciones web con Laravel, Vue, React y más.">
+    <meta name="theme-color" content="#0a0c11">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Billy Smith Capellán Arciniega · Desarrollador Full-Stack">
+    <meta property="og:description"
+        content="Construyo experiencias digitales con código limpio y atención al detalle. Descubre mis proyectos y tecnologías.">
+    <meta property="og:image" content="img/Gojo.jpeg">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Billy Smith Capellán Arciniega · Desarrollador Full-Stack">
+    <meta name="twitter:description"
+        content="Desarrollador full-stack especializado en aplicaciones web modernas y escalables.">
+    <meta name="twitter:image" content="img/Gojo.jpeg">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script>
+        // Tema aplicado antes de pintar para evitar parpadeo.
+        (function () {
+            try {
+                var stored = localStorage.getItem('portfolio-theme');
+                var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Billy Smith Capellán Arciniega",
+            "jobTitle": "Full-Stack Developer",
+            "email": "mailto:billysmithbro@gmail.com",
+            "sameAs": [
+                "https://github.com/BSmithC",
+                "https://www.linkedin.com/in/billy-smith-capellan-85b073358/",
+                "https://www.instagram.com/xb.smith2005x/"
+            ]
+        }
+    </script>
+    <script src="i18n.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Saltar al contenido principal</a>
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
-    <nav class="navbar">
-        <div class="nav-inner">
-            <a href="#home" class="logo" aria-label="Home">
-                <span class="seal">B</span>
-                <span class="logo-text">Smith<em>Capellán</em></span>
+    <header class="site-header" id="siteHeader">
+        <div class="shell nav-inner">
+            <a class="brand" href="#inicio" data-i18n-aria="nav.toHome">
+                <span class="brand-name">Billy Smith<small>Capellán Arciniega</small></span>
             </a>
-            <ul class="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+            <nav class="desktop-nav" data-i18n-aria="nav.primary">
+                <ul>
+                    <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+                    <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+                    <li><a href="#tecnologias" data-i18n="nav.skills">Tecnologías</a></li>
+                    <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+                    <li><a href="#experiencia" data-i18n="nav.experience">Experiencia</a></li>
+                    <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-controls">
+                <button class="icon-button" id="themeToggle" type="button" aria-pressed="false"
+                    data-i18n-aria="controls.theme">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+                <button class="icon-button lang-button" id="langToggle" type="button" aria-pressed="false"
+                    data-i18n-aria="controls.language">
+                    <span id="langToggleLabel">ES</span>
+                </button>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav"
+                data-i18n-aria="nav.openMenu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <nav class="mobile-nav" id="mobileNav" data-i18n-aria="nav.mobile" hidden>
+            <ul>
+                <li><a href="#inicio" data-i18n="nav.home">Inicio</a></li>
+                <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+                <li><a href="#tecnologias" data-i18n="nav.skills">Tecnologías</a></li>
+                <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+                <li><a href="#experiencia" data-i18n="nav.experience">Experiencia</a></li>
+                <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
             </ul>
-        </div>
-    </nav>
+            <div class="mobile-cv">
+                <a class="btn btn-outline" href="cv/cv-es.pdf" download="Billy-Smith-Capellan-ES.pdf"
+                    data-i18n="nav.cvEs">CV en español</a>
+                <a class="btn btn-outline" href="cv/cv-en.pdf" download="Billy-Smith-Capellan-EN.pdf"
+                    data-i18n="nav.cvEn">CV in English</a>
+            </div>
+        </nav>
+    </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-left">
-                <div class="frame kento">
-                    <img src="/portfolios/img/Gojo.jpeg" alt="Portrait of Billy Smith Capellán">
-                    <span class="seal-badge">職人</span>
-                </div>
+    <main id="main">
+        <noscript>
+            <div class="shell noscript-note">
+                <span data-i18n="noscript.text">Este portafolio usa JavaScript para mostrar tecnologías, proyectos y
+                    trayectoria. Puedes contactar directamente en</span>
+                <a href="mailto:billysmithbro@gmail.com">billysmithbro@gmail.com</a> ·
+                <a href="cv/cv-es.pdf">ES</a> / <a href="cv/cv-en.pdf">EN</a>
             </div>
-            <div class="hero-right">
-                <p class="kicker">フルスタック開発者 <span>— Full-Stack Web Programmer</span></p>
-                <h1 class="hero-title">Billy Smith<br>Capellán</h1>
-                <p class="hero-description">I build digital experiences with clean code and quiet
-                    craftsmanship — specializing in modern, scalable web applications for real businesses.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Contact</a>
-                </div>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/xb.smith2005x/" target="_blank" aria-label="Instagram"><i
-                            class="fa-brands fa-instagram"></i></a>
-                    <a href="https://github.com/BSmithC" target="_blank" aria-label="GitHub"><i
-                            class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/billy-smith-capellan-85b073358/" target="_blank"
-                        aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <a href="#about" class="scroll-down">
-                <span class="scroll-line"></span>
-                <span>Scroll</span>
-            </a>
-        </div>
-    </section>
+        </noscript>
 
-    <section class="about" id="about">
-        <span class="ambient-kanji" aria-hidden="true">自己紹介</span>
-        <p class="eyebrow"><span class="num">01</span><span class="jp">自己紹介</span><span class="en">About</span></p>
-        <h2>About Me</h2>
-        <div class="about-content">
-            <div class="about-left">
-                <div class="frame kento small">
-                    <img src="/portfolios/img/Ichigo.jpeg" alt="Second portrait of Billy Smith Capellán">
-                    <span class="seal-badge">情熱</span>
-                </div>
-            </div>
-            <div class="about-right">
-                <div class="about-text">
-                    <p>
-                        I'm a full-stack developer who enjoys turning ideas into working software. I like
-                        building real tools for real businesses — restaurants, clinics, small shops — and
-                        sharing what I learn along the way. This portfolio is where I show that work.
+        <section class="hero" id="inicio" aria-labelledby="hero-title">
+            <div class="shell hero-grid">
+                <div class="hero-copy reveal">
+                    <p class="kicker"><span aria-hidden="true">//</span> <span data-i18n="hero.kicker">Desarrollador
+                            Full-Stack</span></p>
+                    <h1 id="hero-title">Billy Smith<br>Capellán<span class="accent-dot">.</span></h1>
+                    <p class="hero-lead" data-i18n="hero.lead">Construyo experiencias digitales con código limpio y
+                        atención al detalle, especializado en aplicaciones web modernas y escalables para negocios
+                        reales.</p>
+                    <p class="availability" id="availability" hidden>
+                        <span class="status-dot" aria-hidden="true"></span><span id="availabilityText"></span>
                     </p>
-                </div>
-                <div class="about-highlight">
-                    <div class="highlight-item kento">
-                        <i class="fa-solid fa-code"></i>
-                        <h3>2+ years</h3>
-                        <p>of professional experience in web development</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#proyectos"><span data-i18n="hero.explore">Explorar
+                                proyectos</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        <a class="btn btn-outline" href="#contacto" data-i18n="hero.contact">Contactarme</a>
                     </div>
-                    <div class="highlight-item kento">
-                        <i class="fa-regular fa-face-smile"></i>
-                        <h3>16+ projects</h3>
-                        <p>delivered for clients and personal satisfaction</p>
+                    <p class="hero-cv">
+                        <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+                        <span data-i18n="hero.cv">Descargar CV</span>:
+                        <a href="cv/cv-es.pdf" download="Billy-Smith-Capellan-ES.pdf" data-i18n="hero.cvEs">CV en
+                            español</a>
+                        <span aria-hidden="true">·</span>
+                        <a href="cv/cv-en.pdf" download="Billy-Smith-Capellan-EN.pdf" data-i18n="hero.cvEn">CV en
+                            inglés</a>
+                    </p>
+                    <div class="hero-social" data-i18n-aria="hero.social">
+                        <a href="https://github.com/BSmithC" target="_blank" rel="noopener noreferrer"
+                            data-i18n-aria="hero.github"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/billy-smith-capellan-85b073358/" target="_blank"
+                            rel="noopener noreferrer" data-i18n-aria="hero.linkedin"><i class="fa-brands fa-linkedin-in"
+                                aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/xb.smith2005x/" target="_blank" rel="noopener noreferrer"
+                            data-i18n-aria="hero.instagram"><i class="fa-brands fa-instagram"
+                                aria-hidden="true"></i></a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="skills" id="skills">
-        <span class="ambient-kanji" aria-hidden="true">技術</span>
-        <p class="eyebrow center"><span class="num">02</span><span class="jp">技術</span><span class="en">Skills</span></p>
-        <h2>Skills &amp; Tools</h2>
-        <div class="icons-grid">
-            <div class="skill-icon kento"><i class="fa-brands fa-github"></i><span>GitHub</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-php"></i><span>PHP</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-html5"></i><span>HTML5</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-python"></i><span>Python</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-react"></i><span>React</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-vuejs"></i><span>Vue.js</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-laravel"></i><span>Laravel</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-css3"></i><span>CSS</span></div>
-            <div class="skill-icon kento"><i class="fa-solid fa-bolt"></i><span>Vite</span></div>
-            <div class="skill-icon kento"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
-            <div class="skill-icon kento"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
-        </div>
-    </section>
+                <div class="hero-visual reveal">
+                    <div class="portrait-card">
+                        <div class="portrait-bar" aria-hidden="true">
+                            <span data-i18n="hero.file">profile_01.jpg</span>
+                            <span class="window-dots"><i></i><i></i><i></i></span>
+                        </div>
+                        <img src="img/Gojo.jpeg" width="400" height="400" data-i18n-alt="hero.portraitAlt"
+                            alt="Retrato de Billy Smith Capellán Arciniega" fetchpriority="high">
+                        <div class="portrait-caption" aria-hidden="true"><span>bsc / developer</span><span
+                                data-i18n="hero.captionRight">ES · 2026</span></div>
+                    </div>
+                    <span class="corner corner-tl" aria-hidden="true"></span>
+                    <span class="corner corner-br" aria-hidden="true"></span>
+                </div>
+            </div>
 
-    <section class="projects" id="projects">
-        <span class="ambient-kanji" aria-hidden="true">作品</span>
-        <p class="eyebrow"><span class="num">03</span><span class="jp">作品</span><span class="en">Projects</span></p>
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-img kento">
-                    <img src="/portfolios/img/BJInvoices.png" alt="BJInvoices screenshot">
-                </div>
-                <div class="project-info">
-                    <h3>BJInvoices</h3>
-                    <p>Complete inventory and billing system to efficiently manage products, stock, and sales.</p>
-                    <div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div>
-                    <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img kento">
-                    <img src="/portfolios/img/BJGastroSoft.png" alt="BJGastroSoft screenshot">
-                </div>
-                <div class="project-info">
-                    <h3>BJGastroSoft</h3>
-                    <p>Complete inventory and billing system for restaurants, bars and cafés: manage products,
-                        tables and sales with ease.</p>
-                    <div class="project-tags"><span>Vue</span><span>Laravel</span><span>MySQL</span></div>
-                    <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img kento">
-                    <img src="/portfolios/img/ClinicSoft.png" alt="ClinicSoft screenshot">
-                </div>
-                <div class="project-info">
-                    <h3>ClinicSoft</h3>
-                    <p>Complete medical appointment system: schedule patients, manage doctors and control
-                        consultations with ease.</p>
-                    <div class="project-tags"><span>Vue</span><span>Laravel</span><span>MySQL</span></div>
-                    <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+            <a class="scroll-hint" href="#sobre-mi"><span aria-hidden="true">↓</span> <span
+                    data-i18n="hero.scroll">Desliza para conocerme</span></a>
+        </section>
 
-    <section class="contact" id="contact">
-        <span class="ambient-kanji" aria-hidden="true">連絡</span>
-        <p class="eyebrow center"><span class="num">04</span><span class="jp">連絡</span><span class="en">Contact</span></p>
-        <h2>Let's Talk</h2>
-        <div class="contact-container kento">
-            <span class="seal-badge corner">感謝</span>
-            <p>Have a project in mind or just want to say hi? Feel free to reach out!</p>
-            <div class="contact-details">
-                <div class="contact-item"><i class="fa-regular fa-envelope"></i><a
-                        href="mailto:billysmithbro@gmail.com">billysmithbro@gmail.com</a></div>
-                <div class="contact-item"><i class="fa-brands fa-github"></i><a href="https://github.com/BSmithC"
-                        target="_blank">github.com/BSmithC</a></div>
-                <div class="contact-item"><i class="fa-brands fa-linkedin"></i><a
-                        href="https://www.linkedin.com/in/billy-smith-capellan-85b073358/"
-                        target="_blank">linkedin.com/in/bsmith</a></div>
+        <section class="section section-alt" id="sobre-mi" aria-labelledby="about-title">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="eyebrow">01 <span aria-hidden="true">/</span> <span data-i18n="about.eyebrow">Sobre
+                            mí</span></p>
+                    <h2 id="about-title" data-i18n="about.title">La ingeniería como forma de resolver problemas.</h2>
+                </header>
+
+                <div class="about-grid">
+                    <div class="about-copy reveal">
+                        <p data-i18n="about.p1">Soy desarrollador full-stack y me gusta convertir ideas en software que
+                            funciona. Disfruto construyendo herramientas reales para negocios reales —restaurantes,
+                            clínicas, pequeñas tiendas— y compartiendo lo que aprendo en el camino.</p>
+                        <p data-i18n="about.p2">Mi formación en Ingeniería en Sistemas me dio la base técnica, y el
+                            trabajo en proyectos la curiosidad por seguir explorando nuevas tecnologías. Busco crear
+                            soluciones mantenibles, claras y útiles, cuidando tanto la lógica como la experiencia de
+                            quien las usa.</p>
+                        <ul class="about-tags" data-i18n-aria="about.tagsLabel" aria-label="Enfoque profesional">
+                            <li data-i18n="about.tag1">Ingeniería en Sistemas</li>
+                            <li data-i18n="about.tag2">Desarrollo Full-Stack</li>
+                            <li data-i18n="about.tag3">Aprendizaje continuo</li>
+                            <li data-i18n="about.tag4">Código limpio</li>
+                        </ul>
+                        <div class="stats">
+                            <div class="stat"><strong>3<span>+</span></strong><span data-i18n="about.stat1">años de
+                                    experiencia en desarrollo web</span></div>
+                            <div class="stat"><strong>20<span>+</span></strong><span data-i18n="about.stat2">proyectos
+                                    para clientes y uso personal</span></div>
+                        </div>
+                    </div>
+
+                    <aside class="about-aside reveal">
+                        <figure class="about-portrait">
+                            <img src="img/Ichigo.jpeg" width="400" height="400" data-i18n-alt="about.portraitAlt"
+                                alt="Segunda fotografía de Billy Smith Capellán Arciniega" loading="lazy">
+                            <figcaption data-i18n="about.figcaption">En construcción, siempre.</figcaption>
+                        </figure>
+                    </aside>
+                </div>
             </div>
-            <div class="contact-social">
-                <a href="https://www.instagram.com/xb.smith2005x/" target="_blank" aria-label="Instagram"><i
-                        class="fa-brands fa-instagram"></i></a>
-                <a href="https://github.com/BSmithC" target="_blank" aria-label="GitHub"><i
-                        class="fa-brands fa-github"></i></a>
+        </section>
+
+        <section class="section" id="tecnologias" aria-labelledby="skills-title">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="eyebrow">02 <span aria-hidden="true">/</span> <span
+                            data-i18n="skills.eyebrow">Tecnologías</span></p>
+                    <h2 id="skills-title" data-i18n="skills.title">Herramientas que uso para construir.</h2>
+                    <p class="section-intro" data-i18n="skills.intro">Un stack amplio, elegido según lo que cada
+                        proyecto necesita.</p>
+                </header>
+                <div class="skills-grid" id="skillsGrid"></div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="proyectos" aria-labelledby="projects-title">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="eyebrow">03 <span aria-hidden="true">/</span> <span
+                            data-i18n="projects.eyebrow">Proyectos</span></p>
+                    <h2 id="projects-title" data-i18n="projects.title">Trabajo seleccionado.</h2>
+                    <p class="section-intro" data-i18n="projects.intro">Sistemas reales desarrollados, abre cada tarjeta para ver el detalle.</p>
+                </header>
+                <div class="project-grid" id="projectGrid"></div>
+            </div>
+        </section>
+
+        <section class="section" id="experiencia" aria-labelledby="experience-title">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="eyebrow">04 <span aria-hidden="true">/</span> <span
+                            data-i18n="experience.eyebrow">Experiencia y formación</span></p>
+                    <h2 id="experience-title" data-i18n="experience.title">Trayectoria.</h2>
+                </header>
+                <div class="timeline" id="timeline"></div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="contacto" aria-labelledby="contact-title">
+            <div class="shell contact-grid">
+                <div class="contact-info reveal">
+                    <p class="eyebrow">05 <span aria-hidden="true">/</span> <span
+                            data-i18n="contact.eyebrow">Contacto</span></p>
+                    <h2 id="contact-title" data-i18n="contact.title">¿Trabajamos juntos?</h2>
+                    <p data-i18n="contact.intro">Si tienes un proyecto en mente o quieres conversar sobre desarrollo,
+                        escríbeme. Estoy abierto a nuevas colaboraciones.</p>
+                    <ul class="contact-list">
+                        <li><i class="fa-regular fa-envelope" aria-hidden="true"></i><a
+                                href="mailto:billysmithbro@gmail.com">billysmithbro@gmail.com</a></li>
+                        <li><i class="fa-brands fa-github" aria-hidden="true"></i><a href="https://github.com/BSmithC"
+                                target="_blank" rel="noopener noreferrer">github.com/BSmithC</a></li>
+                        <li><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><a
+                                href="https://www.linkedin.com/in/billy-smith-capellan-85b073358/" target="_blank"
+                                rel="noopener noreferrer">linkedin.com/in/billy-smith-capellan</a></li>
+                    </ul>
+                </div>
+
+                <form class="contact-form reveal" id="contactForm" novalidate>
+                    <p class="form-title"><span aria-hidden="true">//</span> <span data-i18n="contact.formTitle">Envíame
+                            un mensaje</span></p>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="fieldName" data-i18n="contact.name">Nombre</label>
+                            <input id="fieldName" name="name" type="text" autocomplete="name"
+                                data-i18n-placeholder="contact.namePlaceholder" placeholder="Tu nombre" required>
+                            <small class="field-error" id="errorName" aria-live="polite"></small>
+                        </div>
+                        <div class="field">
+                            <label for="fieldEmail" data-i18n="contact.email">Correo electrónico</label>
+                            <input id="fieldEmail" name="email" type="email" autocomplete="email"
+                                data-i18n-placeholder="contact.emailPlaceholder" placeholder="tu@correo.com" required>
+                            <small class="field-error" id="errorEmail" aria-live="polite"></small>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="fieldSubject" data-i18n="contact.subject">Asunto</label>
+                        <input id="fieldSubject" name="subject" type="text"
+                            data-i18n-placeholder="contact.subjectPlaceholder" placeholder="¿De qué quieres hablar?">
+                    </div>
+                    <div class="field">
+                        <label for="fieldMessage" data-i18n="contact.message">Mensaje</label>
+                        <textarea id="fieldMessage" name="message" rows="5"
+                            data-i18n-placeholder="contact.messagePlaceholder"
+                            placeholder="Cuéntame un poco sobre tu proyecto..." required></textarea>
+                        <small class="field-error" id="errorMessage" aria-live="polite"></small>
+                    </div>
+                    <button class="btn btn-primary" type="submit"><span data-i18n="contact.submit">Abrir correo para
+                            enviar</span> <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+                    <p class="form-note" data-i18n="contact.note">El mensaje se abre en tu cliente de correo. No se
+                        almacenan tus datos en este sitio.</p>
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="shell footer-inner">
+            <div class="footer-brand">
+                <span>Billy Smith Capellán Arciniega<small data-i18n="footer.role">Desarrollador
+                        Full-Stack</small></span>
+            </div>
+            <nav class="footer-links" data-i18n-aria="nav.footer">
+                <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+                <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+                <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
+                <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+                <a href="cv/cv-es.pdf">ES</a>
+                <a href="cv/cv-en.pdf">EN</a>
+            </nav>
+            <div class="footer-social" data-i18n-aria="footer.social">
+                <a href="https://github.com/BSmithC" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                        class="fa-brands fa-github" aria-hidden="true"></i></a>
                 <a href="https://www.linkedin.com/in/billy-smith-capellan-85b073358/" target="_blank"
-                    aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"
+                        aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/xb.smith2005x/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <span class="mini-seal">印</span>
-        © 2025 B. Smith Capellán — crafted with <span class="kanji-inline">心</span> and quiet motion
+        <div class="shell footer-bottom">
+            <span>© <span id="currentYear">2026</span> <span data-i18n="footer.rights">Billy Smith
+                    Capellán</span></span>
+            <span data-i18n="footer.tagline">Diseñado y desarrollado con atención al detalle.</span>
+        </div>
     </footer>
 
-    <script>
-        // Gentle scroll-reveal, disabled for users who prefer reduced motion
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            const revealTargets = document.querySelectorAll(
-                '.about-content, .icons-grid, .project-grid, .contact-container, .eyebrow, .hero-right, .hero-left'
-            );
-            revealTargets.forEach(el => el.classList.add('reveal'));
-
-            const io = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        io.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15 });
-
-            revealTargets.forEach(el => io.observe(el));
-        }
-    </script>
+    <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+    <aside class="project-drawer" id="projectDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"
+        hidden>
+        <div class="drawer-head">
+            <span class="drawer-index" id="drawerIndex">Proyecto</span>
+            <button class="drawer-close" id="drawerClose" type="button" data-i18n-aria="drawer.close">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="drawerBody"></div>
+    </aside>
 </body>
 
 </html>
