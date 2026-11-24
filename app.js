@@ -205,8 +205,15 @@
                     return '<li>' + esc(tag) + '</li>';
                 }).join('') + '</ul>' +
                 '<div class="card-footer">' +
+                '<div class="card-actions">' +
                 '<button class="card-link" type="button" data-project="' + esc(project.id) + '">' +
                 esc(tr('projects.details')) + ' <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>' +
+                (project.repoUrl
+                    ? '<a class="card-repo" href="' + esc(project.repoUrl) + '" target="_blank"' +
+                      ' rel="noopener noreferrer" aria-label="' + esc(project.name + ' · ' + tr('projects.repo')) + '">' +
+                      '<i class="fa-brands fa-github" aria-hidden="true"></i> ' + esc(tr('projects.repo')) + '</a>'
+                    : '') +
+                '</div>' +
                 '<span class="card-arrow">[ 0' + (index + 1) + ' ]</span>' +
                 '</div></div></article>';
         }).join('');

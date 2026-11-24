@@ -73,6 +73,7 @@ window.PORTFOLIO_I18N = {
         'projects.title': 'Trabajo seleccionado.',
         'projects.intro': 'Sistemas reales desarrollados, abre cada tarjeta para ver el detalle.',
         'projects.details': 'Ver detalles',
+        'projects.repo': 'Repositorio',
 
         'experience.eyebrow': 'Experiencia y formación',
         'experience.title': 'Trayectoria.',
@@ -186,8 +187,9 @@ window.PORTFOLIO_I18N = {
 
         'projects.eyebrow': 'Projects',
         'projects.title': 'Selected work.',
-        'projects.intro': 'Real systems built with Laravel, Vue.js and MySQL. Open each card to see the details.',
+        'projects.intro': 'Real systems built for actual businesses. Open each card to see the details.',
         'projects.details': 'View details',
+        'projects.repo': 'Repository',
 
         'experience.eyebrow': 'Experience & education',
         'experience.title': 'Background.',
